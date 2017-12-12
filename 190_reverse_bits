@@ -1,0 +1,12 @@
+class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        n = bin(n)[2:]
+        n = '0'*(32 - len(n)) + n # add leading zeros
+        
+        r = ''
+        for c in list(n):
+            r = c + r
+            
+        return int(r,2)
