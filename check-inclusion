@@ -1,0 +1,27 @@
+# https://leetcode.com/problems/permutation-in-string
+
+class Solution(object):
+    def checkInclusion(self, s1, s2):
+        """
+        :type s1: str
+        :type s2: str
+        :rtype: bool
+        """
+        
+        def sen2dic(s):
+            d = {}
+            for c in s:
+                if c not in d:
+                    d[c] = 0
+                d[c] += 1
+            return d
+        
+        s1d = sen2dic(s1)
+        
+        for i in range(len(s2)-len(s1)+1):
+            cur = s2[i:i + len(s1)]
+            s2d = sen2dic(cur)
+            if s2d == s1d:
+                return True
+        
+        return False
